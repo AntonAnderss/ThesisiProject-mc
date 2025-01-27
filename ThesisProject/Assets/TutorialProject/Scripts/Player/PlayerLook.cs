@@ -44,6 +44,5 @@ public class PlayerLook : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(0, yRotation, 0);
         playerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
-
     }
 }
