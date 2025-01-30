@@ -2870,6 +2870,10 @@ MonoBehaviour:
   movementInput: {x: 0, y: 0, z: 0}
   movementVector: {x: 0, y: 0, z: 0}
   movementSpeed: 150
+  isSprinting: 0
+  sprintMultiplier: 2
+  jumpForce: 4
+  isGrounded: 0
 --- !u!114 &7421110012244475997
 MonoBehaviour:
   m_ObjectHideFlags: 0

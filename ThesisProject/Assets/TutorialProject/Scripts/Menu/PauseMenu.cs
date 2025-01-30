@@ -44,6 +44,5 @@ public class PauseMenu : MonoBehaviour
     }
     void ResetPauseUI()
     {
-
     }
 }
