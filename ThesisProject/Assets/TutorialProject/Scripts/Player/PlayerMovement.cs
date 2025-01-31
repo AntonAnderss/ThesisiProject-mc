@@ -52,16 +52,12 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
-        //ResetForce();
-
         UpdateMovement();   
         if(characterRB.maxLinearVelocity != maxVelocity)
             characterRB.maxLinearVelocity = maxVelocity;
 
         currentVelocity = characterRB.linearVelocity;
         setMaxVelocity = characterRB.maxLinearVelocity;
-
-        //ApplyForce();
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -87,20 +83,10 @@ public class PlayerMovement : MonoBehaviour
         Vector3 vec = movementInput.x * transform.right + movementInput.y * transform.forward;
         movementVector = new Vector3(vec.x, 0, vec.z);
 
-        characterRB.AddForce(movementVector * MovementSpeed, ForceMode.Impulse);
-    }
-
-    void ApplyForce()
-    {
-        characterRB.AddForce(forceToAdd, ForceMode.Impulse);
-    }
-    void IncreaseForce(Vector3 forceIncrease)
-    {
-        forceToAdd += forceIncrease;
-    }
-    void ResetForce()
-    {
-        forceToAdd = Vector3.zero;
+        if(isGrounded)
+            characterRB.AddForce(movementVector * MovementSpeed, ForceMode.Impulse);
+        else
+            characterRB.AddForce(movementVector * MovementSpeed, ForceMode.Force);
     }
 
     /* Challenge Yourself*/
